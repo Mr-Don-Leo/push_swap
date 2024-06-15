@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 03:56:27 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 13:10:40 by mbabayan         ###   ########.fr       */
+/*   Created: 2023/11/15 15:51:32 by mbabayan          #+#    #+#             */
+/*   Updated: 2023/11/15 15:59:48 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+// ft_striteri applies the function 'f' to each character of the string 's'
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	t_input *parsed_values;
-	
-	if (argc < 2)
-		exit (0);
-	parsed_values = process_input(--argc, argv);
-	
-	
-	return (0);
+	size_t	index;
+
+	index = 0;
+	if (!s)
+		return ;
+	while (index < ft_strlen(s))
+	{
+		(*f)(index, &s[index]);
+		index++;
+	}
 }

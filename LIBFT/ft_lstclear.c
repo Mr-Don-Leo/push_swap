@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 03:56:27 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 13:10:40 by mbabayan         ###   ########.fr       */
+/*   Created: 2023/11/20 14:18:54 by mbabayan          #+#    #+#             */
+/*   Updated: 2023/11/20 14:19:00 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_input *parsed_values;
-	
-	if (argc < 2)
-		exit (0);
-	parsed_values = process_input(--argc, argv);
-	
-	
-	return (0);
+	t_list *holder;
+
+	if (!*lst)
+		return ;
+	while (*lst)
+	{
+		holder = (*lst) -> next;
+		ft_lstdelone(*lst, del);
+		*lst = holder;
+	}
+	free(*lst);
 }

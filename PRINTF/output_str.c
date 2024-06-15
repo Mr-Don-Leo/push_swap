@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   output_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 03:56:27 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 13:10:40 by mbabayan         ###   ########.fr       */
+/*   Created: 2023/12/05 17:56:06 by mbabayan          #+#    #+#             */
+/*   Updated: 2024/05/19 13:53:02 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int main(int argc, char **argv)
+int	output_str(va_list arguments)
 {
-	t_input *parsed_values;
-	
-	if (argc < 2)
-		exit (0);
-	parsed_values = process_input(--argc, argv);
-	
-	
-	return (0);
+	int		printed_count;
+	char	*string;
+
+	string = va_arg(arguments, char *);
+	printed_count = 0;
+	if (string == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	while (string[printed_count])
+	{
+		ft_putchar(string[printed_count]);
+		printed_count++;
+	}
+	return (printed_count);
 }

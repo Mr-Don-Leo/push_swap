@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   input_handling_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 03:56:27 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 13:10:40 by mbabayan         ###   ########.fr       */
+/*   Created: 2024/06/15 13:35:26 by mbabayan          #+#    #+#             */
+/*   Updated: 2024/06/15 14:05:16 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	check_space(char	*str)
 {
-	t_input *parsed_values;
+	int	index;
+
+	index = 0;
+	while (str[index])
+	{
+		if (str[index] != ' ')
+			return (0);
+		index++;
+	}
+	return (1);
+}
+
+int count_values(char **split_values)
+{
+	int index;
 	
-	if (argc < 2)
-		exit (0);
-	parsed_values = process_input(--argc, argv);
-	
-	
-	return (0);
+	index = 0;
+	while (split_values[index])
+		index++;
+	return (index);
 }

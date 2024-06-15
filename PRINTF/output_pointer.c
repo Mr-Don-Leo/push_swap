@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   output_pointer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 03:56:27 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 13:10:40 by mbabayan         ###   ########.fr       */
+/*   Created: 2023/12/05 18:46:32 by mbabayan          #+#    #+#             */
+/*   Updated: 2024/05/19 13:54:06 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int main(int argc, char **argv)
+int	putpointer(size_t pointer, char *hex_base)
 {
-	t_input *parsed_values;
-	
-	if (argc < 2)
-		exit (0);
-	parsed_values = process_input(--argc, argv);
-	
-	
-	return (0);
+	int	c;
+
+	c = 0;
+	if (pointer >= 16)
+		c += putpointer(pointer / 16, hex_base);
+	ft_putchar(hex_base[pointer % 16]);
+	c++;
+	return (c);
+}
+
+int	output_pointer(va_list arguments)
+{
+	int		count;
+	size_t	pointer;
+
+	pointer = va_arg(arguments, size_t);
+	ft_putstr("0x");
+	count = output_hexa(pointer, 'x');
+	return (count + 2);
 }

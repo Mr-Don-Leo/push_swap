@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 03:56:27 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 13:10:40 by mbabayan         ###   ########.fr       */
+/*   Created: 2023/11/12 22:39:30 by mbabayan          #+#    #+#             */
+/*   Updated: 2023/11/13 01:39:53 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+/*
+ * putendl function calls putstr and putchar functions
+ * it outputs the string following a new line.
+ */
+void ft_putendl_fd(char *s, int fd)
 {
-	t_input *parsed_values;
-	
-	if (argc < 2)
-		exit (0);
-	parsed_values = process_input(--argc, argv);
-	
-	
-	return (0);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

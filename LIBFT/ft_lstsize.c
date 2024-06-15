@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 03:56:27 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 13:10:40 by mbabayan         ###   ########.fr       */
+/*   Created: 2023/11/19 15:13:40 by mbabayan          #+#    #+#             */
+/*   Updated: 2023/11/19 15:13:40 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+/*
+ * Counts the number of elements in a list.
+ */
+int ft_lstsize(t_list *lst)
 {
-	t_input *parsed_values;
-	
-	if (argc < 2)
-		exit (0);
-	parsed_values = process_input(--argc, argv);
-	
-	
-	return (0);
+	int count;
+
+	count = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		count++;
+	}
+	return (count);
 }

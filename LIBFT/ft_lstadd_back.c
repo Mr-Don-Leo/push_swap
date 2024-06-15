@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 03:56:27 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 13:10:40 by mbabayan         ###   ########.fr       */
+/*   Created: 2023/11/20 13:36:41 by mbabayan          #+#    #+#             */
+/*   Updated: 2023/11/20 13:36:48 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+/*
+ * Adds the element ’new’ at the end of the list.
+ */
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_input *parsed_values;
-	
-	if (argc < 2)
-		exit (0);
-	parsed_values = process_input(--argc, argv);
-	
-	
-	return (0);
+	if (!lst || !new)
+		return ;
+	if (*lst)
+		ft_lstlast(*lst) -> next = new;
+	else
+		*lst = new;
 }

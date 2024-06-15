@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 03:56:27 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 13:10:40 by mbabayan         ###   ########.fr       */
+/*   Created: 2023/11/07 16:27:05 by mbabayan          #+#    #+#             */
+/*   Updated: 2023/11/11 14:07:16 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+/*
+ * function finds the first occurrence of c in the whole string.
+ */
+char	*ft_strchr(const char *s, int c)
 {
-	t_input *parsed_values;
-	
-	if (argc < 2)
-		exit (0);
-	parsed_values = process_input(--argc, argv);
-	
-	
-	return (0);
+	while ((char)c != *s)
+	{
+		if (!*s)
+			return (NULL);
+		s++;
+	}
+	return ((char *)s);
 }
