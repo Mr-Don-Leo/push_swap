@@ -6,13 +6,13 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:31:16 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 23:54:02 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:47:12 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *parse_array(char **split_values, int total_values)
+int *parse_array(char **split_values, int total_values, t_input *p_values)
 {
 	int index;
 	int *array;
@@ -21,18 +21,19 @@ int *parse_array(char **split_values, int total_values)
 	index = 0;
 	array = malloc(sizeof(int) * total_values);
 	if (!array)
-		return (free_darray(split_values));
-	while (++index < total_values)
+		return (free_darray(split_values), NULL);
+	while (index < total_values)
 	{
 		if (check_digit(split_values[index]) == 0)
 		{
-			array[index] = ft_atoi(split_values[index]);
-			index++;
+			if (add_to_array(array, split_values, index) == 1)
+				return (free_darray(split_values), NULL);
 		}
 		else
-			return (free_darray(split_values));
+			return (free_darray(split_values), NULL);
+		index++;
 	}
-	check_duplicates(array, total_values);
+	free_darray(split_values);
 	return (array);
 }
 

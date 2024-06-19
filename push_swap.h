@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 03:57:11 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 23:56:45 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:40:28 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,15 @@ typedef struct s_input
 	char	**split_values;
 }	t_input;
 
-t_input *process_input(int argc, char **argv);
+t_input process_input(int argc, char **argv);
 int		check_space(char *str);
 int		count_values(char **split_values);
+int		check_digit(char *str);
 char	**free_darray(char **split_values);
-int		*parse_array(char **split_values, int total_values);
-void	check_duplicates(int *array, int total_values);
+int		*parse_array(char **split_values, int total_values, t_input *p_values);
+int		add_to_array(int *array, char **split_values, int index);
+void	exiting(void *str, char **split, char *error_m);
+long	ft_atoi(const char *sp_inp_i, int *intarr, char **sp_inp);
+
 
 #endif

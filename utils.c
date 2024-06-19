@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 15:13:40 by mbabayan          #+#    #+#             */
-/*   Updated: 2023/11/19 15:13:40 by mbabayan         ###   ########.fr       */
+/*   Created: 2024/06/17 23:50:02 by mbabayan          #+#    #+#             */
+/*   Updated: 2024/06/18 00:21:36 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-/*
- * Counts the number of elements in a list.
- */
-int ft_lstsize(t_list *lst)
+void	exiting(void *str, char **split, char *error_m)
 {
-	int count;
-
-	count = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		count++;
-	}
-	return (count);
+	if (str)
+		free(str);
+	if (split)
+		free_darray(split);
+	ft_printf("%s\n", error_m);
+	exit (1);
 }

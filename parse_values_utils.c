@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:33:12 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 23:53:40 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:38:36 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,31 @@ char	**free_darray(char **split_values)
 	free (split_values);
 	return (NULL);
 }
-
-void	check_duplicates(int *array, int total_values)
+int	dup_check(int *intarr, int number, int count)
 {
-	int	index;
-	int	index2;
+	int	i;
 
-	index = 0;
-	while (index < total_values)
+	i = 0;
+	while (i < count)
 	{
-		index2 = index + 1;
-		while (index2 < total_values)
-		{
-			if (array[index] == array[index2])
-				// TODO: free struct, and return error dupe
-			index2++;
-		}
-		index++;
+		if (number == intarr[i])
+			return (1);
+		else
+			i++;
 	}
+	return (0);
+}
+
+int	add_to_array(int *array, char **split_values, int index)
+{
+	if (index == 0)
+		array[index] = ft_atoi(split_values[index], array, split_values);
+	else
+	{
+		if (dup_check(array, ft_atoi(split_values[index], array, split_values), index) == 0)
+			array[index] = ft_atoi(split_values[index], array, split_values);
+		else
+			return (free (array), 1);
+	}
+	return (0);
 }
