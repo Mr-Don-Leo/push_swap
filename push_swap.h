@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 03:57:11 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/18 18:40:28 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/06/19 11:53:16 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_input
 t_input process_input(int argc, char **argv);
 int		check_space(char *str);
 int		count_values(char **split_values);
-int		check_digit(char *str);
+int		check_digit(char *str, int *array);
 char	**free_darray(char **split_values);
 int		*parse_array(char **split_values, int total_values, t_input *p_values);
 int		add_to_array(int *array, char **split_values, int index);

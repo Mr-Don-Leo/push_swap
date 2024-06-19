@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:17 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/18 00:21:47 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:58:10 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	limitcheck(long result, int *intarr, char **arr)
 {
 	if (result > INT_MAX || result < INT_MIN)
-		exiting(intarr, arr, "Error\nOverflow.");
+		exiting(intarr, arr, "Error");
 }
 
 static long	overflowcheck(const char *str, int *intarr, char **arr, int i)
@@ -30,7 +30,7 @@ static long	overflowcheck(const char *str, int *intarr, char **arr, int i)
 		result *= 10;
 		result += str[i] - '0';
 		if (result < temp)
-			exiting(intarr, arr, "Error\nOverflow.");
+			exiting(intarr, arr, "Error");
 		i++;
 	}
 	return (result);
