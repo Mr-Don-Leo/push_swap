@@ -3,24 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   parse_values_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:33:12 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/19 12:59:22 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:00:52 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_digit(char *str, int *array)
+int check_digit(char *str)
 {
 	int index;
 
 	index = 0;
 	if (str[index] == '-' || str[index] == '+')
 		index++;
-	if (str[index] == '\0')
-		return (1);
 	while (str[index])
 	{
 		if (!ft_isdigit(str[index]))
@@ -58,15 +56,23 @@ int	dup_check(int *intarr, int number, int count)
 int	add_to_array(int *array, char **split_values, int index)
 {
 	if (index == 0)
-	{
 		array[index] = ft_atoi(split_values[index], array, split_values);
-	}
 	else
 	{
 		if (dup_check(array, ft_atoi(split_values[index], array, split_values), index) == 0)
 			array[index] = ft_atoi(split_values[index], array, split_values);
 		else
-			return ((void)ft_printf("Error\n"), free (array), 1);
+			return (free (array), 1);
 	}
 	return (0);
+}
+
+void	exiting(void *str, char **split, char *error_m)
+{
+	if (str)
+		free(str);
+	if (split)
+		free_darray(split);
+	ft_printf("%s\n", error_m);
+	exit (1);
 }

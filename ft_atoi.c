@@ -3,58 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:17 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/19 12:58:10 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:54:50 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	limitcheck(long result, int *intarr, char **arr)
+static void	limitcheck(long result, int *array, char **split_values)
 {
 	if (result > INT_MAX || result < INT_MIN)
-		exiting(intarr, arr, "Error");
+		exiting(array, split_values, "Error");
 }
 
-static long	overflowcheck(const char *str, int *intarr, char **arr, int i)
+static long	overflowcheck(const char *str, int *array, char **split_values, int index)
 {
 	long	result;
 	long	temp;
 
 	result = 0;
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+	while (str[index] != '\0' && str[index] >= '0' && str[index] <= '9')
 	{
 		temp = result;
 		result *= 10;
-		result += str[i] - '0';
+		result += str[index] - '0';
 		if (result < temp)
-			exiting(intarr, arr, "Error");
-		i++;
+			exiting(array, split_values, "Error");
+		index++;
 	}
 	return (result);
 }
 
-long	ft_atoi(const char *sp_inp_i, int *intarr, char **sp_inp)
+long	ft_atoi(const char *split_index, int *array, char **split_values)
 {
-	int		i;
+	int		index;
 	int		sign;
 	long	result;
 
-	i = 0;
+	index = 0;
 	sign = 1;
 	result = 0;
-	while (sp_inp_i[i] == 32 || (sp_inp_i[i] >= 9 && sp_inp_i[i] <= 13))
-		i++;
-	if (sp_inp_i[i] == '-')
+	while (split_index[index] == 32 || (split_index[index] >= 9 && split_index[index] <= 13))
+		index++;
+	if (split_index[index] == '-')
 	{
 		sign = -1;
-		i++;
+		index++;
 	}
-	else if (sp_inp_i[i] == '+')
-		i++;
-	result = overflowcheck(sp_inp_i, intarr, sp_inp, i);
+	else if (split_index[index] == '+')
+		index++;
+	result = overflowcheck(split_index, array, split_values, index);
 	result = result * sign;
-	return (limitcheck(result, intarr, sp_inp), result);
+	return (limitcheck(result, array, split_values), result);
 }
