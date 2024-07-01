@@ -12,7 +12,7 @@ NC=\033[0m
 
 SRCS = push_swap.c input_handling.c input_handling_utils.c \
 		parse_values.c parse_values_utils.c ft_atoi.c stack_utils1.c stack_utils2.c \
-		sort_utils1.c \
+		sorting_utils1.c sorting_utils2.c sorting_utils3.c \
 		./RULES/push_rules.c ./RULES/swap_rules.c ./RULES/rotate_rules.c \
 		./RULES/reverse_rotate_rules.c 
 

@@ -1,5 +1,8 @@
 {
 	"files.associations": {
 		"libft.h": "c"
-	}
+	},
+	"cSpell.words": [
+		"lstsize"
+	]
 }
