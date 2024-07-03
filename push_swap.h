@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 03:57:11 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/07/01 20:49:07 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/02 10:27:09 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,14 @@ t_list	*get_max_node(t_list *stack);
  * Sort Utils
 */
 void	sort(t_list **stack_a, t_list **stack_b);
-void	init_best(t_cef *best, t_list **stack_a, t_list **stack_b);
+t_cef	init_best(t_list **stack_a, t_list **stack_b);
 int		compare(int a, int b);
-t_cef	find_cheapest(int temp, t_cef *best,
+t_cef	*find_cheapest(int temp, t_cef *best,
 			t_list **stack_a, t_list **stack_b);
 void	rot_stacks_top(t_cef best, t_list **s_a, t_list **s_b);
 void	rot_stacks_down(t_cef best, t_list **s_a, t_list **s_b);
 void	rot_a_revrot_b(t_cef best, t_list **s_a, t_list **s_b);
 void	rot_b_revrot_a(t_cef best, t_list **s_a, t_list **s_b);
+void	push_all_to_a(t_list **s_a, t_list **s_b);
 
 #endif

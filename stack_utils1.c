@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 23:50:02 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/28 14:17:31 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/02 09:56:53 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ t_list *get_min_node(t_list *stack)
 int  check_if_sorted(t_list *stack)
 {
 	t_list *current;
-
 	current = stack;
 	while (current->next)
 	{
