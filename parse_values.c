@@ -6,34 +6,32 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:31:16 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/22 14:39:14 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/05 02:04:27 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *parse_array(char **split_values, int total_values)
+int	*parse_array(char **split_values, int total_values)
 {
-	int index;
-	int *array;
-	// int check;
+	int	i;
+	int	*array;
 
-	index = 0;
+	i = 0;
 	array = malloc(sizeof(int) * total_values);
 	if (!array)
 		return (free_darray(split_values), NULL);
-	while (index < total_values)
+	while (i < total_values)
 	{
-		if (check_digit(split_values[index]) == 0)
+		if (check_digit(split_values[i]) == 0)
 		{
-			if (add_to_array(array, split_values, index) == 1)
+			if (add_to_array(array, split_values, i) == 1)
 				return (free_darray(split_values), NULL);
 		}
 		else
 			return (free_darray(split_values), NULL);
-		index++;
+		i++;
 	}
 	free_darray(split_values);
 	return (array);
 }
-

@@ -1,5 +1,4 @@
 NAME = push_swap
-# NAME_BONUS = checker
 CC = cc
 CFLAGS = -fsanitize=address,undefined -g3
 
@@ -53,7 +52,6 @@ clean:
 	@echo "$(ORANGE)Cleaning up object files...$(NC)"
 	@$(MAKE) -C libft clean
 	@rm -f $(OBJS)
-	# @rm -f $(BONUS_OBJS)
 	@echo "$(ORANGE)Cleanup complete.$(NC)"
 	@echo
 
@@ -62,7 +60,6 @@ fclean: clean
 	@$(MAKE) -C libft fclean
 	@$(MAKE) -C printf fclean
 	@rm -f $(NAME)
-	# @rm -f $(BONUS)
 	@echo "$(RED)Full clean complete.$(NC)"
 	@echo
 

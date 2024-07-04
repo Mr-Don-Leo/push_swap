@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:27:05 by mbabayan          #+#    #+#             */
-/*   Updated: 2023/11/11 14:07:16 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/05 02:03:54 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

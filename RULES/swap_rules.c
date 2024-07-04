@@ -12,16 +12,16 @@
 
 #include "../push_swap.h"
 
-void swap(t_list *stack)
+void	swap(t_list *stack)
 {
-	int temporary;
+	int	temporary;
 
 	temporary = stack->content;
 	stack->content = stack->next->content;
 	stack->next->content = temporary;
 }
 
-void swap_a(t_list *stack_a, int flag)
+void	swap_a(t_list *stack_a, int flag)
 {
 	if (!stack_a || !stack_a->next)
 		return ;
@@ -30,7 +30,7 @@ void swap_a(t_list *stack_a, int flag)
 		ft_printf("sa\n");
 }
 
-void swap_b(t_list *stack_b, int flag)
+void	swap_b(t_list *stack_b, int flag)
 {
 	if (!stack_b || !stack_b->next)
 		return ;
@@ -39,7 +39,7 @@ void swap_b(t_list *stack_b, int flag)
 		ft_printf("sb\n");
 }
 
-void swap_ab(t_list *stack_a, t_list *stack_b, int flag)
+void	swap_ab(t_list *stack_a, t_list *stack_b, int flag)
 {
 	if (stack_a && stack_a->next)
 		swap_a(stack_a, 0);

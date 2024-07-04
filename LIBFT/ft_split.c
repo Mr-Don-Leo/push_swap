@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbabayan <mbabayan@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:50:49 by mbabayan          #+#    #+#             */
-/*   Updated: 2023/11/15 11:50:53 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/05 02:06:52 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+char	**free_double_array(char **split_values)
+{
+	int	i;
+
+	i = 0;
+	while (split_values[i])
+		free(split_values[i++]);
+	free(split_values);
+	return (NULL);
+}
 
 static int	word_count(char const *string, char separator)
 {
@@ -50,11 +61,13 @@ static void	add_string_to_list(char **result, char const *string,
 	{
 		letter_count = 0;
 		while (string[index + letter_count] && string[index
-			+ letter_count] != separator)
+				+ letter_count] != separator)
 			letter_count++;
 		if (letter_count > 0)
 		{
 			result[word_count] = ft_substr(string, index, letter_count);
+			if (!result[word_count])
+				free_double_array(result);
 			word_count++;
 			index += letter_count;
 		}
@@ -66,8 +79,8 @@ static void	add_string_to_list(char **result, char const *string,
 
 char	**ft_split(char const *s, char c)
 {
-	int count;
-	char **result;
+	int		count;
+	char	**result;
 
 	if (!s)
 		return (NULL);

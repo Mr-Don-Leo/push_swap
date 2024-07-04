@@ -6,32 +6,32 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:35:26 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/15 14:05:16 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/05 02:04:44 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_space(char	*str)
+int	check_space(char *str)
 {
-	int	index;
+	int	i;
 
-	index = 0;
-	while (str[index])
+	i = 0;
+	while (str[i])
 	{
-		if (str[index] != ' ')
+		if (str[i] != ' ')
 			return (0);
-		index++;
+		i++;
 	}
 	return (1);
 }
 
-int count_values(char **split_values)
+int	count_values(char **split_values)
 {
-	int index;
-	
-	index = 0;
-	while (split_values[index])
-		index++;
-	return (index);
+	int	i;
+
+	i = 0;
+	while (split_values[i])
+		i++;
+	return (i);
 }

@@ -54,7 +54,7 @@ static char	*ft_save(char *save)
 		free(save);
 		return (NULL);
 	}
-	buff = malloc ((sizeof(char)) * ft_strlen(save) - i + 1);
+	buff = malloc((sizeof(char)) * ft_strlen(save) - i + 1);
 	if (!buff)
 		return (NULL);
 	i++;

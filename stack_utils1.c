@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 23:50:02 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/07/02 09:56:53 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/05 02:05:59 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 void	set_indexs(t_list *stack)
 {
 	t_list	*current;
-	int		index;
+	int		i;
 
 	current = stack;
-	index = 0;
+	i = 0;
 	while (current)
 	{
-		current->index = index;
+		current->i = i;
 		current = current->next;
-		index++;
+		i++;
 	}
 }
 
-void init_stack(t_list **stack, int size, int *array)
+void	init_stack(t_list **stack, int size, int *array)
 {
-	int index;
-	t_list *new_node;
+	int		i;
+	t_list	*new_node;
 
-	index = 0;
-	while (index < size) 
+	i = 0;
+	while (i < size)
 	{
-		new_node = ft_lstnew(array[index]);
+		new_node = ft_lstnew(array[i]);
 		if (!new_node)
 		{
 			ft_lstclear(stack, free);
@@ -43,19 +43,21 @@ void init_stack(t_list **stack, int size, int *array)
 			exiting(NULL, NULL, "Error");
 		}
 		ft_lstadd_back(stack, new_node);
-		index++;
+		i++;
 	}
 	set_indexs(*stack);
 	free(array);
 }
 
-t_list *get_max_node(t_list *stack)
+t_list	*get_max_node(t_list *stack)
 {
-	t_list *max_node;
-	t_list *current;
+	t_list	*max_node;
+	t_list	*current;
 
-	max_node = stack;
+	if (!stack)
+		return (NULL);
 	current = stack;
+	max_node = current;
 	while (current)
 	{
 		if (current->content > max_node->content)
@@ -65,25 +67,28 @@ t_list *get_max_node(t_list *stack)
 	return (max_node);
 }
 
-t_list *get_min_node(t_list *stack)
+t_list	*get_min_node(t_list **stack)
 {
-	t_list *min_node;
-	t_list *current;
+	t_list	*minimum;
+	t_list	*temporary;
 
-	min_node = stack;
-	current = stack;
-	while (current)
+	if (!stack || !(*stack))
+		return (NULL);
+	temporary = (*stack);
+	minimum = temporary;
+	while (temporary)
 	{
-		if (current->content < min_node->content)
-			min_node = current;
-		current = current->next;
+		if (temporary->content < minimum->content)
+			minimum = temporary;
+		temporary = temporary->next;
 	}
-	return (min_node);
+	return (minimum);
 }
 
-int  check_if_sorted(t_list *stack)
+int	check_if_sorted(t_list *stack)
 {
-	t_list *current;
+	t_list	*current;
+
 	current = stack;
 	while (current->next)
 	{

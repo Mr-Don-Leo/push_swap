@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:17 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/06/25 12:54:50 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:19:05 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,43 +18,45 @@ static void	limitcheck(long result, int *array, char **split_values)
 		exiting(array, split_values, "Error");
 }
 
-static long	overflowcheck(const char *str, int *array, char **split_values, int index)
+static long	overflowcheck(const char *str, int *array, char **split_values,
+		int i)
 {
 	long	result;
 	long	temp;
 
 	result = 0;
-	while (str[index] != '\0' && str[index] >= '0' && str[index] <= '9')
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		temp = result;
 		result *= 10;
-		result += str[index] - '0';
+		result += str[i] - '0';
 		if (result < temp)
 			exiting(array, split_values, "Error");
-		index++;
+		i++;
 	}
 	return (result);
 }
 
 long	ft_atoi(const char *split_index, int *array, char **split_values)
 {
-	int		index;
+	int		i;
 	int		sign;
 	long	result;
 
-	index = 0;
+	i = 0;
 	sign = 1;
 	result = 0;
-	while (split_index[index] == 32 || (split_index[index] >= 9 && split_index[index] <= 13))
-		index++;
-	if (split_index[index] == '-')
+	while (split_index[i] == 32 || (split_index[i] >= 9
+			&& split_index[i] <= 13))
+		i++;
+	if (split_index[i] == '-')
 	{
 		sign = -1;
-		index++;
+		i++;
 	}
-	else if (split_index[index] == '+')
-		index++;
-	result = overflowcheck(split_index, array, split_values, index);
+	else if (split_index[i] == '+')
+		i++;
+	result = overflowcheck(split_index, array, split_values, i);
 	result = result * sign;
 	return (limitcheck(result, array, split_values), result);
 }
