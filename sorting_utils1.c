@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 14:14:17 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/07/05 17:07:11 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/05 17:19:32 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_cef	replace(t_cef cheapest, t_cef compare)
 t_cef	cheapest(t_list *node, t_list **stack1, t_list **stack2)
 {
 	t_cef			info;
-	unsigned int	temp;
+	int				temp;
 
 	info.src = node;
 	info.dest = find_node(stack2, node->content);
