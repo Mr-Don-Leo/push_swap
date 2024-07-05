@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:31:16 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/07/05 13:58:33 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/05 21:25:43 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	*parse_array(char **split_values, int total_values)
 		if (check_digit(split_values[i]) == 0)
 		{
 			if (add_to_array(array, split_values, i) == 1)
-				return (free_darray(split_values), NULL);
+				return (free_darray(split_values), free(array), NULL);
 		}
 		else
 			return (free_darray(split_values), NULL);
