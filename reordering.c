@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting_utils3.c                                   :+:      :+:    :+:   */
+/*   reordering.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 20:05:02 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/07/04 10:37:15 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/05 16:19:27 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ void	rot_b_revrot_a(t_cef best, t_list **s_a, t_list **s_b)
 
 void	push_all_to_a(t_list **s_a, t_list **s_b)
 {
+	if (!(*s_b))
+		return ;
 	while (get_max_node(*s_b)->i != 0)
 	{
 		if (get_max_node(*s_b)->i <= ft_lstsize(*s_b) / 2)

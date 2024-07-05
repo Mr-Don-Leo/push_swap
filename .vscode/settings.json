@@ -1,0 +1,9 @@
+{
+	"files.associations": {
+		"push_swap.h": "c",
+		"libft.h": "c",
+		"stdlib.h": "c",
+		"limits.h": "c",
+		"get_next_line.h": "c"
+	}
+}

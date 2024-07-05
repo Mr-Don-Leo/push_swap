@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:35:26 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/07/05 02:04:44 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/05 17:07:19 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_space(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 	{
 		if (str[i] != ' ')
 			return (0);

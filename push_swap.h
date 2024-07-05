@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 03:57:11 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/07/05 02:09:44 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/05 14:40:37 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int			*parse_array(char **split_values, int total_values);
 int			add_to_array(int *array, char **split_values, int i);
 void		exiting(void *str, char **split, char *error_m);
 long		ft_atoi(const char *sp_inp_i, int *intarr, char **sp_inp);
+char		*join_strings(int argc, char **argv);
 /*
  * Stack Operations
  */

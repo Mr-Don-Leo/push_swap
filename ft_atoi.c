@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:25:17 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/07/03 18:19:05 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/07/05 11:47:57 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ long	ft_atoi(const char *split_index, int *array, char **split_values)
 		i++;
 	result = overflowcheck(split_index, array, split_values, i);
 	result = result * sign;
-	return (limitcheck(result, array, split_values), result);
+	limitcheck(result, array, split_values);
+	return (result);
 }
