@@ -6,7 +6,7 @@
 /*   By: mbabayan <mbabayan@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:33:12 by mbabayan          #+#    #+#             */
-/*   Updated: 2024/07/05 02:05:34 by mbabayan         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:38:58 by mbabayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	add_to_array(int *array, char **split_values, int i)
 				i) == 0)
 			array[i] = ft_atoi(split_values[i], array, split_values);
 		else
-			return (free(array), 1);
+			return (1);
 	}
 	return (0);
 }
